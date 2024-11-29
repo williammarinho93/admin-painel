@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { ResponsiveContainer, LineChart, XAxis, YAxis, CartesianGrid, Line, Tooltip } from "recharts"
+import { ResponsiveContainer, LineChart, XAxis, YAxis,  Line,  } from "recharts"
 
 
 const data = [
