@@ -1,11 +1,11 @@
-import { MessageCircle, Ticket, LayoutDashboard, Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { MessageCircle, Ticket, LayoutDashboard, Settings } from "lucide-react"
 import Imagem from "../assets/ti.png"
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
+
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
