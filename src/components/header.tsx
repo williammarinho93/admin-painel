@@ -10,20 +10,25 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, For
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
+    
     DialogHeader,
-    DialogTitle,
+    
     DialogTrigger,
   } from "@/components/ui/dialog"
   
 
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
-
+type FormValues = {
+  subject: string;
+  description: string;
+  attachment?: string;
+  contact: string;
+};
 
 
 const schema = z.object({
@@ -50,7 +55,11 @@ export function Header(){
         },
       });
     
-      const onSubmit = (data) => {
+      /**
+       * 
+       * 
+       */
+      const onSubmit = (data: FormValues) => {
         console.log("Dados enviados:", data);
       };
 
