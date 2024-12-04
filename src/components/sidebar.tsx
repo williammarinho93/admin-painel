@@ -15,11 +15,15 @@ import { Separator } from "./ui/separator"
 import { Collapsible, CollapsibleContent  } from "./ui/collapsible"
 import { CollapsibleTrigger } from "@radix-ui/react-collapsible"
 
+
+
+
+
 // Menu items.
 const items = [
   {
     title: "Dashboard",
-    url: "#",
+    url: "/",
     icon: LayoutDashboard,
   },
   {
@@ -29,7 +33,7 @@ const items = [
     items: [
       {
         title: "Listagem de Tickets",
-        url: "#",
+        url: "/tickets",
       },
       {
         title: "Cadastro",
