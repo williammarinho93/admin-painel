@@ -120,7 +120,7 @@ export function TableWork() {
                 
                 <TableCell>{task.tecnico}</TableCell>
                 <TableCell>
-                    <Badge variant={task.status === "ativo" ? "success" : "destructive"} className={task.status === "ativo" ? "bg-green-500" : "bg-red-500"}>{task.status}</Badge>
+                    <Badge variant={task.status === "ativo" ? "default" : "destructive"} className={task.status === "ativo" ? "bg-green-500" : "bg-red-500"}>{task.status}</Badge>
                 </TableCell>
                 <TableCell>
                   <DropdownMenu>
