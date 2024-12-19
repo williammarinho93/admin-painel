@@ -6,6 +6,8 @@ import { AppLayout } from './pages/_layout/app';
 import { AuthLayout } from './pages/_layout/auth';
 import { SignUp } from './pages/auth/sign-up';
 import { TicketTable } from './pages/app/tickets/tableTicket';
+import { TableWork } from './pages/app/cadastro/tableWork';
+
 
 export const router = createBrowserRouter([
     {
@@ -14,7 +16,7 @@ export const router = createBrowserRouter([
         children: [
             { path: '/', element: <Dashboard /> },
             { path: 'tickets', element: <TicketTable /> },
-
+            { path: 'mesatrabalho', element: <TableWork />},
 
         ],
     },

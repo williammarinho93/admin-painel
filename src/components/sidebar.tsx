@@ -1,20 +1,24 @@
-import { MessageCircle, Ticket, LayoutDashboard, Settings, ChevronRight } from "lucide-react"
+import { MessageCircle, Ticket, LayoutDashboard, Settings, ChevronRight, FolderPen } from "lucide-react"
 import Imagem from "../assets/ti.png"
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-
+  
+  
+  
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
+  
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 import { Separator } from "./ui/separator"
 import { Collapsible, CollapsibleContent  } from "./ui/collapsible"
 import { CollapsibleTrigger } from "@radix-ui/react-collapsible"
-
+import { Link } from "react-router-dom"
 
 
 
@@ -30,14 +34,47 @@ const items = [
     title: "Tickets",
     url: "#",
     icon: Ticket,
+    isActive: true,
     items: [
       {
         title: "Listagem de Tickets",
         url: "/tickets",
       },
+      
+   ],  
+  },
+  {
+    title: "Cadastro",
+    icon: FolderPen,
+    url: "#",
+    items: [
       {
-        title: "Cadastro",
-        url: "#",
+        title: "Tipos de Tickets",
+        url: "/tickets/tipos",
+      },
+      {
+        title: "Catalogo de Categoria",
+        url: "/tickets/catalogo",
+      },
+      {
+        title: "Grupo de Categoria",
+        url: "/tickets/grupocatalogo",
+      },
+      {
+        title: "Mesa de Trabalho",
+        url: "/mesatrabalho",
+      },
+      {
+        title: "Perfil de Operadores",
+        url: "/tickets/perfiloperadores",
+      },
+      {
+        title: "Equipe de Operadores",
+        url: "/tickets/equipeoperadores",
+      },
+      {
+        title: "Cliente",
+        url: "/tickets/cliente",
       },
     ],
   },
@@ -52,72 +89,78 @@ const items = [
     url: "#",
     icon: Settings,
   },
+  
 ]
 
 export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
-        <SidebarGroup className="gap-4" >
-          <SidebarHeader >
-          <img src={Imagem} alt="Descrição" className="size-25 " />
+        <SidebarGroup className="gap-4">
+          <SidebarHeader>
+            <img src={Imagem} alt="Descrição" className="size-25 " />
           </SidebarHeader>
-          <Separator  />
-          <SidebarGroupContent>
+          <Separator />
+          
+          <SidebarGroupContent >
+            <SidebarMenu className="text-white">
+              {items.map((item) => {
+                const hasSubItems = item.items && item.items.length > 0;
 
-            
-            
-            <SidebarMenu>
-              {items.map((item) => (
-                <div key={item.title}>
-                {item.items ? (
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <SidebarMenuItem>
-                        <SidebarMenuButton asChild>
-                          <a href={item.url} className="text-white flex items-center justify-between  ">
-                          <span className="flex items-center gap-2 ">
-                            <item.icon className=" size-5 " />
-                            <span>{item.title}</span>
-
-                            </span>
-                            <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                        
-                          </a>
-                          
+                return hasSubItems ? (
+                  <Collapsible
+                    key={item.title}
+                    title={item.title}
+                    //defaultOpen={item.isActive}
+                  >
+                    <SidebarContent>
+                      <CollapsibleTrigger asChild>
+                        <SidebarMenuButton tooltip={item.title}>
+                          {item.icon && <item.icon />}
+                          <span>{item.title}</span>
+                          <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
+                      </CollapsibleTrigger>
+
+                      <CollapsibleContent >
+                        <SidebarMenuSubItem className="ml-2  border-l border-white  ">
                         
-                      </SidebarMenuItem>
-                      
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      {item.items.map((subItem) => (
-                        <SidebarMenuItem key={subItem.title}>
-                          <SidebarMenuButton asChild>
-                            <a href={subItem.url} className="text-white pl-6">
-                              <span>{subItem.title}</span>
-                            </a>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      ))}
-                    </CollapsibleContent>
+                          {item.items.map((subItem) => (
+                            <SidebarMenuSubItem key={subItem.title}>
+                              
+                              <SidebarMenuSubButton asChild className="text-white " >
+                              
+                                <a href={subItem.url}>
+                                  <span>{subItem.title}</span>
+                                </a>
+                                
+                              </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                          ))}
+                        </SidebarMenuSubItem>
+                      </CollapsibleContent>
+                    </SidebarContent>
                   </Collapsible>
-                ) : (
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <a href={item.url} className="text-white">
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </a>
+                ) : item.title === "Dashboard" ? (
+                  // Usando Link para redirecionar para a página principal
+                  <Link to="/" key={item.title}>
+                    <SidebarMenuButton tooltip={item.title}>
+                      {item.icon && <item.icon />}
+                      <span>{item.title}</span>
                     </SidebarMenuButton>
-                  </SidebarMenuItem>
-                )}
-              </div>
-            ))}
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
-    </SidebarContent>
-  </Sidebar>
-)
+                  </Link>
+                ) : (
+                  // Renderiza como um botão normal se não tiver sub-itens
+                  <SidebarMenuButton key={item.title} tooltip={item.title}>
+                    {item.icon && <item.icon />}
+                    <span>{item.title}</span>
+                  </SidebarMenuButton>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+  );
 }

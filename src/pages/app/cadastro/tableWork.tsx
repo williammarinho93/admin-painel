@@ -1,14 +1,17 @@
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Helmet } from "react-helmet-async";
 
 
-export function TicketTable(){
+
+export function TableWork(){
     return(
         <>
-        <Helmet title="listagem de tickts" />
+            <Helmet title="Mesa de Trabalho" />
         <div className="flex flex-col gap-4" >
-            <h1 className="text-3xl font-bold tracking-tight " >Ticket</h1>
+            <h1 className="text-3xl font-bold tracking-tight " >Mesa de Trabalho</h1>
+            <Button >Nova Mesa</Button>
 
             <div className="space-y-2.5" >
                 <form className="flex items-center gap-2">
@@ -44,6 +47,5 @@ export function TicketTable(){
 
         </div>
         </>
-        
     )
 }
