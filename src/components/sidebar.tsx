@@ -74,7 +74,7 @@ const items = [
       },
       {
         title: "Cliente",
-        url: "/tickets/cliente",
+        url: "/cliente",
       },
     ],
   },

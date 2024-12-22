@@ -7,6 +7,7 @@ import { AuthLayout } from './pages/_layout/auth';
 import { SignUp } from './pages/auth/sign-up';
 import { TicketTable } from './pages/app/tickets/tableTicket';
 import { TableWork } from './pages/app/cadastro/tableWork';
+import { AddClient } from './pages/app/cadastro/addClient';
 
 
 export const router = createBrowserRouter([
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
             { path: '/', element: <Dashboard /> },
             { path: 'tickets', element: <TicketTable /> },
             { path: 'mesatrabalho', element: <TableWork />},
+            { path: 'cliente', element: <AddClient/> },
 
         ],
     },

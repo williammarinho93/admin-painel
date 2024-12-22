@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { ResponsiveContainer, LineChart, XAxis, YAxis,  Line,  } from "recharts"
+import { ResponsiveContainer, LineChart, XAxis, YAxis,  Line, CartesianGrid,  } from "recharts"
 
 
 const data = [
@@ -28,7 +28,7 @@ export function TicketChart(){
 
                         <Line  type="monotone" strokeWidth={2} dataKey="value" />
 
-                        
+                        <CartesianGrid vertical={false} className="stroke-muted" />
                     </LineChart>
                 </ResponsiveContainer>
             </CardContent>
