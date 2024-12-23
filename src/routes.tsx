@@ -8,6 +8,7 @@ import { SignUp } from './pages/auth/sign-up';
 import { TicketTable } from './pages/app/tickets/tableTicket';
 import { TableWork } from './pages/app/cadastro/tableWork';
 import { AddClient } from './pages/app/cadastro/addClient';
+import { CatalagoCategoria } from './pages/app/cadastro/catCategoria';
 
 
 export const router = createBrowserRouter([
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
             { path: 'tickets', element: <TicketTable /> },
             { path: 'mesatrabalho', element: <TableWork />},
             { path: 'cliente', element: <AddClient/> },
+            { path: 'categoria', element: <CatalagoCategoria/> },
 
         ],
     },

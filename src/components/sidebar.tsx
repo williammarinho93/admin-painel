@@ -54,7 +54,7 @@ const items = [
       },
       {
         title: "Catalogo de Categoria",
-        url: "/tickets/catalogo",
+        url: "/categoria",
       },
       {
         title: "Grupo de Categoria",
