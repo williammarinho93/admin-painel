@@ -5,7 +5,7 @@ import { AfazerCard } from "./AfazerCard";
 import { PausadoCard } from "./PausadoCard";
 import { FinalizadoCard } from "./FinalizadoCard";
 import { TicketChart } from "./TicketChart";
-import { Notification } from "./Notification";
+import Notification from "./Notification";
 
 
 
