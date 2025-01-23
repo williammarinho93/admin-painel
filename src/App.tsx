@@ -2,7 +2,8 @@ import { RouterProvider } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async"
 import { router } from "./routes";
 import './index.css'
-import { Toaster } from 'sonner'
+//import { Toaster } from 'sonner'
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
   
@@ -10,7 +11,7 @@ function App() {
     
       < HelmetProvider>
         <Helmet titleTemplate="%s | HelpDesk"/>
-        <Toaster richColors  />
+        <Toaster  position="top-right"  richColors />
         <RouterProvider  router={router} />
       </HelmetProvider>
       

@@ -2,15 +2,14 @@ import { Outlet } from 'react-router-dom'
 import { Header } from '@/components/header'
 import { AppSidebar } from '@/components/sidebar'
 import { SidebarProvider } from '@/components/ui/sidebar'
-//import React from 'react'
-//import { Sidebar1 } from '@/components/sidebar1'
-//import { Sidebar } from '@/components/ui/sidebar'
+
+
 
 
 
 
 export function AppLayout(){
-    //const [open, setOpen] = React.useState(false)
+    
     return(
         <div className="h-screen flex">
             
